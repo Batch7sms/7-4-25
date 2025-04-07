@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Student Dashboard</h2>
+        <ul>
+            <li><a href="#dashboard" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#view-details" onclick="showSection('view-details')">view-details</a></li>
+            <li><a href="#view-subjects" onclick="showSection('view-subjects')">view-subjects</a></li>
+            <li><a href="#view-attendance" onclick="showSection('view-attendance')">view-Attendance </a></li>
+            <!-- <li><a href="#" onclick="showSection('performance')">Academic Performance</a></li> -->
+            <li><a href="#" class="logout-btn">Log Out</a></li>
+        </ul>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <p>Welcome to the Student Dashboard!</p>
+         <!-- Section 1: Dashboard -->
+         <section id="dashboard" class="dashboard-section">
+        <div class="student-container">
+            <div class="stats-card" id="student-detail">
+                <div id="userDetails">
+                    <p><strong>Hello  </strong> <span id="username"></span> !</p>
+                    <p><strong>Your Email is </strong> <span id="email"></span></p>
+                </div>
+            </div>
+        </div>
+        </section>
+        
+        
+
+        <!-- Section 2: view details  -->
+        <section id="view-details" class="view-details-section" style="display: none;">
+            <div class="student-details-container"></div>
+         </section>
+        <!-- Section 3: view subjects  -->
+        <section id="view-subjects" class="view-details-section" style="display: none;">
+            <div class="stats-card">
+                <h2>Subjects</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Subject Name</th>
+                            <th>Teacher Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentSubjectsTableBody">
+                        <!-- Subjects will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 4: view-Attendance -->
+        <section id="view-attendance" style="display: none;">
+            <h2>Your Attendance Report</h2>
+
+            <div>
+                <label>From: <input type="date" id="fromDate" /></label>
+                <label>To: <input type="date" id="toDate" /></label>
+                <button onclick="fetchStudentReport()">Filter</button>
+            </div>
+            
+            <table border="1" id="attendanceTable" style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Present</th>
+                        <th>Total</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            
+            <h3>Overall Attendance</h3>
+            <p id="overallAttendance"></p>
+            
+        </section>
+
+        
+      
+    </div>
+
+    <script src="student.js"></script>
+</body>
+</html>
